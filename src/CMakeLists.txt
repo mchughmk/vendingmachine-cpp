@@ -1,0 +1,2 @@
+add_library(VendingMachine vendingmachine.cc coinpaymentprocessor.cc)
+target_link_libraries(VendingMachine)
