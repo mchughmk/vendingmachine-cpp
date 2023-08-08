@@ -1,10 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
-	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"name": "VendingMachine",
+	"image": "mchughmk/cpp-dev",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -21,7 +19,7 @@
 		"vscode": {
 			"settings": {},
 			"extensions": [
-				"ms-vscode.cpptools-themes",
+				"ms-vscode.cpptools-extension-pack",
 				"matepek.vscode-catch2-test-adapter"
 			]
 		}
