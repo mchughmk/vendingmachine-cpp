@@ -11,6 +11,9 @@ add_executable(
   vendingmachine-test
   vendingmachine_test.cc
   coinpaymentprocessor_test.cc
+  paymentdb_test.cc
+  vendingmachine_integration_test.cc
+  coinpaymentprocessor_integration_test.cc
 )
 
 target_link_libraries(

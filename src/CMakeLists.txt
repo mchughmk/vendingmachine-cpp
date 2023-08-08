@@ -1,2 +1,2 @@
-add_library(VendingMachine vendingmachine.cc coinpaymentprocessor.cc)
+add_library(VendingMachine vendingmachine.cc coinpaymentprocessor.cc paymentdb.cc)
 target_link_libraries(VendingMachine)

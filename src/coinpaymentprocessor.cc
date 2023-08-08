@@ -1,26 +1,37 @@
 #include "paymentprocessor.h"
+#include "paymentdb.h"
 
 class CoinPaymentProcessor : public IPaymentProcessor {
     public:
+        CoinPaymentProcessor(IPaymentDb* payment_db) {
+            database = payment_db;
+        }
+
+        ~CoinPaymentProcessor() {
+            delete database;
+        }
+
         int GetBalance() override {
-            return balance;
+            return database->GetCurrentBalance();
         }
 
         void ProcessPayment(int paymentAmount) override {
-            balance += paymentAmount;
+            int balance = GetBalance();
+            database->SetBalance(balance + paymentAmount);
         }
 
         bool HasSufficientBalance(int purchasePrice) override {
-            return (balance >= purchasePrice);
+            return (GetBalance() >= purchasePrice);
         }
 
         void ClearPayment() override {
-            balance = 0;
+            database->SetBalance(0);
         }
 
         void ProcessPurchase(int purchasePrice) override {
-            balance -= purchasePrice;
+            int balance = GetBalance();
+            database->SetBalance(balance - purchasePrice);
         }
     private:
-        int balance = 0;
+        IPaymentDb* database;
 };
